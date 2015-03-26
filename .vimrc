@@ -60,8 +60,14 @@ filetype plugin indent on    " required
 set bg=light
 "set bg=dark
 colorscheme pencil
+"set listchars=tab:»-,trail:·,extends:»,precedes:«
+set listchars=tab:▸\ ,trail:⚫
+set list
 set autowriteall  "killer Feature
+set swapfile
+set dir=/home/dreamer/.vimswap
 set nowrap        " don't wrap lines
+set expandtab
 set tabstop=2     " a tab is four spaces
 set autoindent    " always set autoindenting on
 set copyindent    " copy the previous indentation on autoindenting
@@ -76,7 +82,9 @@ set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type keystrokes
 set linespace=1
 set showcmd
-
+set mouse=a       "Enable mouse use in all modes
+"set autochdir
+autocmd BufEnter * lcd %:p:h
 "plugin specific customizations
 set hidden
 
@@ -85,11 +93,12 @@ nnoremap <leader>ut :UndotreeToggle<CR>
 nnoremap <S-h>      :tabprev<CR>
 nnoremap <S-l>      :tabnext<CR>
 nnoremap <C-e>      :NERDTreeToggle<CR>
-nnoremap <C-\>      :NERDTreeToggle<CR>
+nnoremap <C-\>      :NERDTreeFind<CR> 
 nnoremap <leader>e  :NERDTreeFind<CR>
 nnoremap <leader>tt :TagbarToggle<CR>
 nnoremap <leader>w  :set wrap<CR>
 nnoremap <leader>nw :set nowrap<CR>
+nnoremap <leader>gb :Gblame<CR>
 " Use CTRL-S for saving, also in Insert mode
 noremap <C-S> :update<CR>
 vnoremap <C-S> <esc>:update<CR>gv
